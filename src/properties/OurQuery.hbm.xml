@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>   
+<!DOCTYPE hibernate-mapping PUBLIC   
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="tetou.groovy.kakeibo.entity.DetailedStatement" table="DETAILED_STATEMENT" lazy="false">
+		<id name="id" type="java.math.BigDecimal">
+			<column name="ID" not-null="true" />
+			<generator class="assigned" />
+		</id>
+		<property name="shpid" type="java.lang.Integer" column="SHP_ID" not-null="true" />
+		<property name="prdctname" type="java.lang.String" column="PRDCT_NAME" not-null="true" />
+		<property name="prdctprice" type="java.lang.Integer" column="PRDCT_PRICE" not-null="true" />
+		<property name="pstymd" type="java.lang.String" column="PST_YMD" not-null="false" />
+		<property name="insid" type="java.lang.String" column="INS_ID" not-null="true" />
+		<property name="insymd" type="java.util.Date" column="INS_YMD" not-null="true" />
+		<property name="updid" type="java.lang.String" column="UPD_ID" not-null="true" />
+		<property name="updymd" type="java.util.Date" column="UPD_YMD" not-null="true" />
+		<property name="deleted" type="java.lang.String" column="DELETED" not-null="true" />
+	</class>
+	<class name="tetou.groovy.kakeibo.entity.ShpMst" table="SHP_MST" lazy="false">
+		<id name="id" type="java.lang.Integer">
+			<column name="ID" not-null="true" />
+			<generator class="assigned" />
+		</id>
+		<property name="shpname" type="java.lang.String" column="SHP_NAME" not-null="false" />
+		<property name="insid" type="java.lang.String" column="INS_ID" not-null="true" />
+		<property name="insymd" type="java.util.Date" column="INS_YMD" not-null="true" />
+		<property name="updid" type="java.lang.String" column="UPD_ID" not-null="true" />
+		<property name="updymd" type="java.util.Date" column="UPD_YMD" not-null="true" />
+		<property name="deleted" type="java.lang.String" column="DELETED" not-null="true" />
+	</class>
+</hibernate-mapping>

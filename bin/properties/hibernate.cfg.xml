@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<!--suppress HibernateConfigDomInspection -->
+<hibernate-configuration>
+    <session-factory>
+    	<!-- create-dropだとテーブルを作り直してしまう -->
+        <property name="hbm2ddl.auto">update</property>
+
+		<!-- 実行したSQLをコンソール上に表示 -->
+        <property name="show_sql">false</property>
+        <property name="format_sql">false</property>
+
+		<!-- DB接続情報 -->
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <!--<property name="dialect">org.hibernate.dialect.MySQLDialect</property>-->
+        <!--<property name="connection.datasource">java:/comp/env/jdbc/MySQL_JDBC_Cons</property>-->
+        <!--<property name="current_session_context_class">thread</property>-->
+        <property name="connection.url">jdbc:mysql:///kakeibo?useUnicode=true&amp;characterEncoding=Shift_JIS</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">myuser</property>
+        <property name="connection.password">mypass</property>
+		<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		
+		<!-- c3p0設定 -->
+		<property name="c3p0.idle_test_period">100</property>
+		<property name="c3p0.acquire_increment">1</property>
+		<property name="c3p0.max_size">10</property>
+		<property name="c3p0.min_size">5</property>
+		<property name="c3p0.timeout">30</property>
+
+        <!-- マッピング -->
+		<mapping resource="./properties/OurQuery.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>
